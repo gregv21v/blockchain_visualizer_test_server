@@ -1,0 +1,22 @@
+{
+  "name": "blockchain_visualizer_test_server",
+  "version": "0.0.1",
+  "description": "a server to test how the blockchain visualizer works before testing on real data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Blockchain",
+    "Visualizer",
+    "Server"
+  ],
+  "author": "Gregory Venezia & Alec Breton",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "express": "^4.17.2"
+  }
+}
