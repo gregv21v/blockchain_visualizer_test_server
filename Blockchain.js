@@ -10,7 +10,8 @@ class Blockchain {
      * @description constructs the blockchain
      */
     constructor() {
-        this.chain = [this.createGenesisBlock()]
+        this._head = this.createGenesisBlock()
+        this._length = 1;
     }
 
     /**
@@ -18,7 +19,7 @@ class Blockchain {
      * @description creates the first block in the blockchain
      */
     createGenesisBlock() {
-        return new Block(0, "01/01/2022", "Genesis Block", "0");
+        return new Block(0, "01/01/2022", "Genesis Block", null, "0");
     }
 
 
@@ -27,7 +28,7 @@ class Blockchain {
      * @description gets the latest block in the chain
      */
     getLatestBlock() {
-        return this.chain[this.chain.length - 1]
+        return this.getLastBlock();
     }
 
 
@@ -38,7 +39,25 @@ class Blockchain {
     addBlock(newBlock) {
         newBlock.previousHash = this.getLatestBlock().hash
         newBlock.hash = newBlock.calculateHash();
-        this.chain.push(newBlock)
+        this.getLastBlock().nextBlock = newBlock;
+        this._length++;
+    }
+
+
+    /**
+     * getLastBlockNode() 
+     * @description get the last block in the chain
+     * @returns the last block
+     */
+    getLastBlock() {
+        let currentNode = this._head;
+
+        // if currentNode and currentNode.next block exist 
+        while(currentNode && currentNode.nextBlock) {
+            currentNode = currentNode.nextBlock;
+        }
+
+        return currentNode;
     }
 
 

@@ -15,13 +15,13 @@ coin.addBlock(new Block(2, "1/6/21", { amount: 2 }))
 coin.addBlock(new Block(3, "1/5/21", { amount: 3 }))
 
 
-app.get("/coin", (request, response) => {
+app.get("/coin", (_request, response) => {
     response.send(coin)
 })
 
 
 app.listen(PORT, () => {
-    console.log("Running... ");
+    console.log("http://localhost:" + PORT)
 })
 
 

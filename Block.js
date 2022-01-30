@@ -14,13 +14,32 @@ class Block {
      * @param data the data inside the block
      * @param previousHash the hash that links this block to another block
      */
-    constructor(index, timestamp, data, previousHash = ''){
+    constructor(index, timestamp, data, nextBlock, previousHash = ''){
         this.index = index;
         this.timestamp = timestamp
         this.data = data 
         this.previousHash = previousHash
         this.hash = ""
+        this._nextBlock = nextBlock
     } 
+
+    /**
+     * set nextBlock()
+     * @description sets the previous block to another value
+     * @param {Block} value the block to set the previous block to.
+     */
+    set nextBlock(value) {
+        this._nextBlock = value;
+    }
+
+    /**
+     * get nextBlock()
+     * @description gets the next block in the chain
+     * @returns next block
+     */
+    get nextBlock() {
+        return this._nextBlock;
+    }
 
 
     /**
@@ -30,6 +49,11 @@ class Block {
     calculateHash() {
         return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)).toString()
     }
+
+
+    /**
+     * p
+     */
 
 }
 
