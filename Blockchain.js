@@ -59,28 +59,6 @@ class Blockchain {
 
         return currentNode;
     }
-
-
-    /** 
-     * isChainValid()
-     * @description determines if the blockchain is valid
-     */
-    isChainValid() {
-        for(let i = 1; i < this.chain.length; i++) {
-            const currentBlock = this.chain[i];
-            const previousBlock = this.chain[i-1]
-            
-            if(currentBlock.hash !== currentBlock.calculateHash()) {
-                return false;
-            }
-
-            if(currentBlock.previousHash !== previousBlock._hash) {
-                return false;
-            }
-        }
-        return true;
-    }
-
 }
 
 module.exports = Blockchain
