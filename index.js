@@ -13,6 +13,7 @@ const coin = new Blockchain()
 coin.addBlock(new Block(1, "1/7/21", { amount: 1 }))
 coin.addBlock(new Block(2, "1/6/21", { amount: 2 }))
 coin.addBlock(new Block(3, "1/5/21", { amount: 3 }))
+coin.addBlock(new Block(4, "1/10/22", { amount: 5 }))
 
 
 app.get("/coin", (_request, response) => {
